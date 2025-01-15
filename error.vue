@@ -10,7 +10,7 @@
 
 <script setup>
 const statusCode = useNuxtApp().payload.error?.statusCode || 500;
-console.log(useNuxtApp().payload.error);
+console.error(useNuxtApp().payload.error);
 
 </script>
 

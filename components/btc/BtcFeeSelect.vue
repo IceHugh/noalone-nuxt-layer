@@ -80,10 +80,8 @@ const {
   queryFn: () => getBtcFee(network.value),
 
 });
-console.log(data.value);
 
 onServerPrefetch(async () => {
-  console.log('onServerPrefetch');
   await suspense();
 });
 

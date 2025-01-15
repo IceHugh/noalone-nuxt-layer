@@ -5,7 +5,6 @@ import { buildConfig, i18nConfig } from './config';
 
 const currentDir = dirname(fileURLToPath(import.meta.url));
 
-console.log('currentDir', currentDir);
 
 export default defineNuxtConfig({
   devtools: { enabled: true },

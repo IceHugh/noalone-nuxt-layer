@@ -21,7 +21,7 @@
   </FormField>
 </template>
 <script setup lang="ts">
-import type { FieldProps } from '~layer/components/ui/auto-form';
+import { type FieldProps } from '~layer/components/ui/auto-form/interface';
 import { beautifyObjectName } from '~layer/components/ui/auto-form/utils';
 const props = defineProps<FieldProps>();
 </script>
