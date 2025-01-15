@@ -1,0 +1,7 @@
+{
+  "btc": {
+    "order": {
+      "notice": "Notice: All your data and Bitcoin Ordinals inscription actions are processed locally, with no need to upload to a server. This ensures that your information is more secure and not accessible or stored by third parties."
+    }
+  }
+}
