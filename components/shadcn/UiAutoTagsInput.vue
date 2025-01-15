@@ -21,7 +21,13 @@
   </FormField>
 </template>
 <script setup lang="ts">
-import { type FieldProps } from '~layer/components/ui/auto-form/interface';
 import { beautifyObjectName } from '~layer/components/ui/auto-form/utils';
+interface FieldProps {
+  fieldName: string
+  label?: string
+  required?: boolean
+  config?: any
+  disabled?: boolean
+}
 const props = defineProps<FieldProps>();
 </script>

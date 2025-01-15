@@ -1,9 +1,15 @@
 <script setup lang="ts">
-import { type FieldProps } from '~layer/components/ui/auto-form/interface';
 import { beautifyObjectName } from '~layer/components/ui/auto-form/utils';
 import UiSelect from './UiSelect.vue';
 import MultiSelect from './MultiSelect.vue';
 import UiTagsInput from './UiTagsInput.vue';
+interface FieldProps {
+  fieldName: string
+  label?: string
+  required?: boolean
+  config?: any
+  disabled?: boolean
+}
 const props = defineProps<FieldProps>();
 const component = computed(() => {
 
