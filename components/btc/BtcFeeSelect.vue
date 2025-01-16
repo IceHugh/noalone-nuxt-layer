@@ -41,7 +41,7 @@
               :max="1000"
               placeholder="Enter rate"
             />
-            <Slider v-model="customRate" :min="1" :max="1000" class="flex-1" />
+            <!-- <Slider v-model="customRate" :min="1" :max="1000" class="flex-1" /> -->
           </div>
         </div>
         <DialogFooter>
@@ -78,7 +78,6 @@ const {
 } = useQuery({
   queryKey: ['btcFee', network],
   queryFn: () => getBtcFee(network.value),
-
 });
 
 onServerPrefetch(async () => {

@@ -10,10 +10,11 @@ const modules = [
   '@nuxtjs/tailwindcss',
   'shadcn-nuxt',
   '@nuxt/icon',
+  '@nuxtjs/color-mode',
   '@nuxtjs/i18n',
   '@vueuse/nuxt',
-  '@pinia/nuxt',
   '@nuxtjs/seo',
+  '@pinia/nuxt',
 ];
 
 if (process.env.USE_CLERK) {
