@@ -8,7 +8,7 @@
     </div>
     <!-- <UiErrorNotification v-if="error" :message="error" /> -->
     <Empty
-      v-if="isEmpty"
+      v-if="isEmpty && !isLoading"
       v-bind="emptyStateProps"
       @action="$emit('emptyAction')"
     />
