@@ -17,11 +17,6 @@ const modules = [
   '@pinia/nuxt',
 ];
 
-console.log(process.env.USE_CLERK);
-
-if (process.env.USE_CLERK) {
-  modules.push('@clerk/nuxt');
-}
 export const buildConfig = {
   modules,
   icon: {
