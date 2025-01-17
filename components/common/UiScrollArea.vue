@@ -1,21 +1,27 @@
 <template>
-  <ScrollArea class="w-full h-full p-4 lg:p-6 relatvie" ref="scrollAreaRef">
+  <div
+    class="w-full h-full p-4 lg:p-6 relatvie overflow-y-auto"
+    ref="scrollAreaRef"
+  >
     <slot />
-    <BackToTop @click="topHandler" :scrollElement="viewport" v-if="viewport"/>
-  </ScrollArea>
+    <ClientOnly>
+      <BackToTop
+        @click="topHandler"
+        :scrollElement="scrollAreaRef"
+        v-if="scrollAreaRef"
+      />
+    </ClientOnly>
+  </div>
 </template>
 
 <script setup lang="ts">
 const scrollAreaRef = ref<any | null>(null);
-const viewport = computed(() => scrollAreaRef.value?.$el?.querySelector('[data-radix-scroll-area-viewport]'));
-
 const topHandler = () => {
-  if (viewport.value) {
-    viewport.value.scrollTo({
+  if (scrollAreaRef.value) {
+    scrollAreaRef.value.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
   }
-  // scrollAreaRef.value?.scrollAreaRef?.scrollTop();
 };
 </script>

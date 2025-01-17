@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Menu, Package2 } from 'lucide-vue-next';
 interface MenuLink {
   title: string;
   url: string;
@@ -42,8 +41,10 @@ const route = useRoute();
         </div>
         <div class="mt-auto p-4">
           <div class="flex justify-end gap-2">
-            <ThemeSwitcher />
-            <LanguageSwitcher />
+            <ClientOnly>
+              <ThemeSwitcher />
+              <LanguageSwitcher />
+            </ClientOnly>
           </div>
         </div>
       </div>
@@ -52,41 +53,48 @@ const route = useRoute();
       <header
         class="flex h-14 items-center gap-4 border-b px-4 lg:h-[60px] lg:px-6 backdrop-blur-md"
       >
-        <Sheet>
-          <SheetTrigger as-child>
-            <Button variant="outline" size="icon" class="shrink-0 md:hidden">
-              <Menu class="h-5 w-5" />
-              <span class="sr-only">Toggle navigation menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left" class="flex flex-col">
-            <nav class="grid gap-2 text-lg font-medium">
-              <template v-for="item in links" :key="item.title">
-                <MenuLinkItem
-                  :to="item.url"
-                  :icon="item.icon"
-                  :active="route.path === item.url"
-                >
-                  {{ item.title }}
-                </MenuLinkItem>
-              </template>
-            </nav>
-            <div class="mt-auto">
-              <div class="flex justify-end gap-2">
-                <ThemeSwitcher />
-                <LanguageSwitcher />
+        <ClientOnly>
+          <Sheet>
+            <SheetTrigger as-child>
+              <Button variant="outline" size="icon" class="shrink-0 md:hidden">
+                <Icon
+                  name="i-solar-hamburger-menu-line-duotone"
+                  class="size-5"
+                />
+                <span class="sr-only">Toggle navigation menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" class="flex flex-col p-4">
+              <div class="flex items-center border-b pb-4 pt-6">
+                <slot name="aside-header" />
               </div>
-            </div>
-          </SheetContent>
-        </Sheet>
+              <nav class="grid gap-2 text-lg font-medium">
+                <template v-for="item in links" :key="item.title">
+                  <MenuLinkItem
+                    :to="item.url"
+                    :icon="item.icon"
+                    :active="route.path === item.url"
+                  >
+                    {{ item.title }}
+                  </MenuLinkItem>
+                </template>
+              </nav>
+              <div class="mt-auto">
+                <div class="flex justify-end gap-2">
+                  <ThemeSwitcher />
+                  <LanguageSwitcher />
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </ClientOnly>
         <div class="flex-1">
           <slot name="header" />
         </div>
       </header>
       <main class="flex flex-1 overflow-hidden">
-        <UiScrollArea class="w-full h-full p-4 lg:p-6">
+        <UiScrollArea>
           <slot />
-          <BackToTop />
         </UiScrollArea>
       </main>
     </div>

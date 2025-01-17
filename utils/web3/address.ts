@@ -1,5 +1,5 @@
 export const hideAddress = (
-  str?: string,
+  str?: string | null,
   num: number = 10,
   placeholder = '*****',
 ) => {

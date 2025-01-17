@@ -9,14 +9,15 @@
       aria-label="Back to top"
       ref="buttonRef"
     >
-      <ChevronUp class="h-4 w-4" />
+      <Icon
+        name="i-solar-double-alt-arrow-up-bold-duotone"
+        class="size-4"
+      ></Icon>
     </Button>
   </Transition>
 </template>
 
 <script setup lang="ts">
-import { ChevronUp } from 'lucide-vue-next';
-
 const props = defineProps<{ scrollElement: HTMLElement | null }>();
 
 const showButton = ref(false);

@@ -37,37 +37,35 @@
   </Pagination>
 </template>
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
-
 const props = defineProps({
   defaultPage: {
     type: Number,
-    default: 1
+    default: 1,
   },
   disabled: {
     type: Boolean,
-    default: false
+    default: false,
   },
   itemsPerPage: {
     type: Number,
-    default: 10
+    default: 10,
   },
   page: {
     type: Number,
-    default: 1
+    default: 1,
   },
   showEdges: {
     type: Boolean,
-    default: false
+    default: false,
   },
   siblingCount: {
     type: Number,
-    default: 2
+    default: 2,
   },
   total: {
     type: Number,
-    default: 0
-  }
+    default: 0,
+  },
 });
 
 const emits = defineEmits(['update:page']);

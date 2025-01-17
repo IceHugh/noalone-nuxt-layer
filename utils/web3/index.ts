@@ -1,4 +1,5 @@
 import * as btc from './btc';
+export * from './address';
 
 const web3 = {
   btc,
